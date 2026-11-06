@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vitor Bruno</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+    <a href="#" class="logo">vitor bruno.</a>
+    </header>
+
+    <main>
+
+        <div class="introduction">
+            <p class="location">
+               Electrical Engineering student // João Pessoa, Brazil
+            </p>
+
+            <nav>
+                <a href="posts/about.html">about</a>
+                <a href="posts/notes.html">notes</a>
+                <a href="https://github.com/vitorl07">github</a>
+                <a href="https://www.linkedin.com/in/vitor-bruno-4754b8317/">linkedin</a>
+                <a href="https://medium.com/@vitorbruno1">medium</a>
+                <a href="https://www.youtube.com/@lunarvb">music</a>
+            </nav>
+
+        </div>
+
+        <section id="about">
+            <h2>about</h2>
+
+            <p>
+                I'm Vitor Bruno, an electrical engineering student and indie game developer & modder.
+                This is my personal space to document
+                projects, experiments and ideas.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>projects</h2>
+
+            <div id="project-list"></div>
+        </section>
+
+        <section id="blog">
+            <h2>notes</h2>
+
+            <div id="blog-list"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 Vitor Bruno
+    </footer>
+
+    <script>
+
+        const projects = [
+            { name:"Gamejolt",
+              url:"https://gamejolt.com/@ivitor"
+            },
+
+            {
+                name:"Itch.io",
+                url:"https://vbgames1.itch.io/"
+            }
+            ];
+
+       const posts = [
+        {
+        name: "E-ink Devices",
+        date: "October 21, 2026",
+        url: "posts/e-ink.html"
+        }
+
+        
+    ];
+
+        function render(items, target) {
+
+            const container = document.getElementById(target);
+
+            if (items.length === 0) {
+                container.textContent = "Nothing published yet.";
+                container.className = "empty";
+                return;
+            }
+
+            items.forEach(item => {
+
+                const row = document.createElement("div");
+                row.className = "item";
+
+                const link = document.createElement("a");
+                link.href = item.url;
+                link.textContent = item.name;
+
+                const date = document.createElement("span");
+                date.textContent = item.year || item.date;
+
+                row.append(link, date);
+
+                container.appendChild(row);
+
+            });
+        }
+
+        render(projects, "project-list");
+        render(posts, "blog-list");
+
+    </script>
+
+</body>
+</html>
